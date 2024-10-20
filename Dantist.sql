@@ -1,0 +1,11 @@
+create database IF not exists dantist;
+use dantist;
+#drop table if exists patients;
+create table if not exists patients(patient_id integer auto_increment primary key, FIO varchar(128), phone_number varchar(11), email varchar(64), doctor_id int, date_id int, time_id int);
+#insert into patients(FIO, phone_number, email) values ("Vasiliy Ivanovich Kon", "89876543210", "kon@mail.ru");
+#drop table if exists date_accessible;
+create table if not exists date_accessible(date_id integer primary key, day_month varchar(5), day_name varchar(11), time_id int);
+#insert into date_accessible(date_id, day_month, day_name) values (1, "01.01", "wednesday");
+create table if not exists doctors(doctor_id integer auto_increment primary key, FIO_doc varchar(128), specialisation varchar(32));
+#alter table dantist.patients add constraint fk_date_acessible foreign key(date_id) references dantist.date_accessible(date_id) ON DELETE CASCADE ON UPDATE CASCADE;
+create table if not exists time_accessible(time_id integer auto_increment primary key, time_of_day varchar(5));
