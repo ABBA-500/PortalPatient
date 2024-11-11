@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <style>
+        body{
+            background-color: #1a1a1a;
+            text-align: center;
+            line-height: 1;
+            margin:auto;
+        }
+        .info{
+            background-color: #1a1a1a;
+            display: flex;
+            color: #d5d5d5;
+        }
+        #image{
+            margin-top: 10px;
+            background-color: #d5d5d5;
+            box-shadow: 5px 5px 5px 5px gray;
+            width: 60px;;
+            padding: 20px;
+            font-weight: 400;
+            padding-bottom: 0px;
+            height: 40px;
+            user-select: none;
+            text-decoration:line-through;
+            font-style: italic;
+            font-size: x-large;
+            border: #3f3f3f 2px solid;
+            margin-left: 10px;
+        }
+        #user-input{
+            background-color: #d5d5d5;
+            box-shadow: 5px 5px 5px 5px gray;
+            width:auto;
+            margin-right: 10px;
+            padding: 10px;
+            padding-bottom: 0px;
+            height: 40px;
+            border: #3f3f3f 0px solid;
+        }
+        input{
+            border:1px black solid;
+        }
+        .inline{
+            display:inline-block;
+        }
+        #btn{
+            box-shadow: 5px 5px 5px grey;
+            color: #d5d5d5;
+            margin: 10px;
+            background-color: #3f3f3f;
+        }
+        #submit{
+            visibility: hidden;
+        }
+    </style>
+<script>
+    let captcha;
+    function generate() {
+    document.getElementById("Check").value = "";
+
+    captcha = document.getElementById("image");
+    let uniquechar = "";
+
+    const randomchar =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (let i = 1; i < 5; i++) {
+        uniquechar += randomchar.charAt(
+            Math.random() * randomchar.length)
+    }
+
+    captcha.innerHTML = uniquechar;
+    }
+
+    function printmsg() {
+    const usr_input = document
+        .getElementById("Check").value;
+
+    if (usr_input == captcha.innerHTML) {
+        let s = document.getElementById("key")
+            .innerHTML = "Matched";
+            var button = document.getElementById("submit");
+            button.style.visibility = "visible";
+        generate();
+    }
+    else {
+        let s = document.getElementById("key")
+            .innerHTML = "not Matched";
+        generate();
+    }
+}
+</script>
+</head>
+<body onload="generate()">
+    <div class="info">
+        <div><img src="images/Radio.Point.jpg" width=25%></div>
+        <div style="width: 100%; text-align: left;">
+            <p>Имя пользователя</p> 
+            <input style="width: 200px;" type="text" id="username" placeholder="Ursaty A.">
+
+            <p>Пароль</p>
+            <input style="width: 200px;" type="password" id="password">
+
+            <p></p>
+            <button type="submit" id="submit">Войти</button>
+            <p></p>
+        </div>
+    </div>
+    <div id="user-input" class="inline">
+        <input type="text"
+               id="Check"
+               placeholder="Captcha code" />
+    </div>
+ 
+    <div class="inline" onclick="generate()">
+        <i class="fas fa-sync"></i>
+    </div>
+ 
+    <div id="image"
+         class="inline"
+         selectable="False">
+    </div>
+    <input type="submit"
+           id="btn"
+           onclick="printmsg()" />
+ 
+    <p id="key"></p>
+<script src="Log.js"></script>
+</body>
+</html>
