@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись ко врачу</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Стоматологическая Клиника</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="registration.html">Регистрация / Вход</a></li>
+                <li><a href="appointment.html">Запись ко врачу</a></li>
+                <li><a href="records.html">Проверка записей</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Запись ко врачу</h2>
+        <form>
+            <label for="specialization">Специализация:</label>
+            <select id="specialization">
+                <option value="стоматолог">Стоматолог</option>
+                <option value="ортодонт">Ортодонт</option>
+                <option value="пародонтолог">Пародонтолог</option>
+            </select>
+            <label for="doctor">ФИО врача:</label>
+            <select id="doctor">
+                <option value="Иванов И.И.">Иванов И.И.</option>
+                <option value="Петров П.П.">Петров П.П.</option>
+                <option value="Сидоров С.С.">Сидоров С.С.</option>
+            </select>
+            <label for="date">Дата:</label>
+            <input type="date" id="date" required>
+            <label for="time">Время:</label>
+            <select id="time">
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+            </select>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Записаться</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Стоматологическая Клиника</p>
+    </footer>
+</body>
+</html>
