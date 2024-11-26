@@ -10,20 +10,37 @@
             line-height: 1;
             margin:auto;
             color: #d5d5d5;
+            justify-content: space-around;
         }
+        #datetime-picker {
+            margin-top: 20px;
+        }
+        
     </style>
+    <title>Календарь с выбором даты и времени</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     
 </head>
 <body>
     <div>
-        <img src="images/Registr.jpg" width=50%>
+        <h1>Выберите дату и время</h1>
+        <label for="date">Дата:</label>
+        <input type="text" id="date" placeholder="Выберите дату" readonly>
+        <label for="time">Время:</label>
+        <input type="time" id="time">
+
+        <div id="datetime-picker">
+            <button id="submit">Подтвердить выбор</button>
+        </div>
+
+        <div id="result" style="margin-top: 20px;"></div>
     </div>
     <div style="width: 80%;font-size: 18px; text-align: left;">
     <p>Имя пользователя</p> 
     <input style="width: 200px;" type="text" id="username" placeholder="Ursaty A.">
 
     <p>Email</p>
-    <input style="width: 200px;" id="email" placeholder="radiotochka_ss_rf@yandex.ru">
+    <input style="width: 200px;" id="email" placeholder="icm_unn@unn.ru">
 
     <p>Пароль</p>
     <input style="width: 200px;" type="password" id="password">
@@ -34,10 +51,29 @@
     <input style="width: 200px;" type="password" id="password2">
 
     <p></p>
-    <button type="submit" id="submit">Зарегистрироваться</button>
+    <button type="submit" id="submit">Записаться</button>
 
-    <button type="change" id="change">Войти</button>
+    <button type="change" id="change">Проверить запись</button>
     </div>
 <script src="Reg.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function() {
+        $("#date").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+
+        $("#submit").on("click", function() {
+            const selectedDate = $("#date").val();
+            const selectedTime = $("#time").val();
+            if (selectedDate && selectedTime) {
+                $("#result").html(`Вы выбрали: ${selectedDate} ${selectedTime}`);
+            } else {
+                alert("Пожалуйста, выберите дату и время.");
+            }
+        });
+    });
+</script>
 </body>
 </html>
