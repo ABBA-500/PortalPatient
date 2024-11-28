@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка записей</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Стоматологическая Клиника</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="registration.html">Регистрация / Вход</a></li>
+                <li><a href="appointment.html">Запись ко врачу</a></li>
+                <li><a href="records.html">Проверка записей</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Проверка записей</h2>
+        <form>
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" required>
+            <label for="login-password">Пароль:</label>
+            <input type="password" id="login-password" required>
+            <button type="submit">Проверить записи</button>
+        </form>
+        <div id="appointments">
+            <h3>Ваши записи:</h3>
+            <ul>
+                <li>Запись к Иванову И.И. на 10:00 <button>Отказаться</button></li>
+                <li>Запись к Петрову П.П. на 11:00 <button>Отказаться</button></li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Стоматологическая Клиника</p>
+    </footer>
+</body>
+</html>
