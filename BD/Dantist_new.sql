@@ -69,6 +69,17 @@ end; //
 	
 delimiter ;
 
+#drop trigger drop_date;
+delimiter //
+
+create trigger drop_date
+after delete on patients
+for each row 
+update date_accessible set doctor_id = Null
+where date_id not in (select date_id from patients);
+end; //
+	
+delimiter ;
 #update users set pass = MD5(pass);
 ##################
 #Заполение таблиц#
